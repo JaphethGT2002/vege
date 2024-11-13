@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Groceries</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #4CAF50;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    nav h1 {
+      font-family: 'Playfair Display', serif;
+      color: white;
+      margin: 0;
+    }
+
+    /* Categories */
+    #categories {
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #categories ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #categories ul li {
+      display: inline;
+      margin: 10px;
+      padding: 10px;
+      background-color: #8B4513;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #categories ul li:hover {
+      background-color: #4CAF50;
+    }
+
+    /* Products */
+    #products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .product-category {
+      display: none;
+      margin: 10px;
+    }
+
+    .product-category h3 {
+      font-family: 'Playfair Display', serif;
+      color: #4CAF50;
+    }
+
+    .product {
+      text-align: center;
+      margin: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 150px;
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .product p {
+      margin: 5px 0;
+      color: #4CAF50;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="C:\Users\LENOVO\Desktop\organic\images\Colorful Illustrative Organic Grocery Online Shop Logo.png" alt="Logo" class="logo">
+      <h1>Organic Groceries</h1>
+    </nav>
+  </header>
+
+  <main>
+    <section id="categories">
+      <h2>Categories</h2>
+      <ul>
+        <li onclick="showCategory('vegetables')">Vegetables</li>
+        <li onclick="showCategory('fruits')">Fruits</li>
+        <li onclick="showCategory('dairy')">Dairy</li>
+        <li onclick="showCategory('grains')">Grains</li>
+      </ul>
+    </section>
+
+    <section id="products">
+      <!-- Vegetables Category -->
+      <div id="vegetables" class="product-category">
+        <h3>Vegetables</h3>
+        <div class="product"><img src="images/carrot.jpg" alt="Carrot"><p>Carrot - $2.50</p></div>
+        <div class="product"><img src="images/Brocollis.jpeg" alt="Broccoli"><p>Broccoli - $3.00</p></div>
+        <div class="product"><img src="images/letti.jpg" alt="Lettuce"><p>Lettuce - $1.00</p></div>
+        <div class="product"><img src="images/tomato.jpg" alt="Tomato"><p>Tomato - $1.80</p></div>
+        <div class="product"><img src="images/onions.jpg" alt="Onion"><p>Onion - $1.20</p></div>
+        
+      </div>
+
+      <!-- Fruits Category -->
+      <div id="fruits" class="product-category">
+        <h3>Fruits</h3>
+        <div class="product"><img src="images/apple.jpg" alt="Apple"><p>Apple - $1.00</p></div>
+        <div class="product"><img src="images/bananas.jpg" alt="Banana"><p>Banana - $0.50</p></div>
+        <div class="product"><img src="images/oranges.jpg" alt="Orange"><p>Orange - $0.80</p></div>
+        <div class="product"><img src="images/grapes.jpg" alt="Grapes"><p>Grapes - $2.00</p></div>
+        <div class="product"><img src="images/mangoes.jpg" alt="Mango"><p>Mango - $1.50</p></div>
+       
+      </div>
+
+      <!-- Dairy Category -->
+      <div id="dairy" class="product-category">
+        <h3>Dairy</h3>
+        <div class="product"><img src="images/milk.jpeg" alt="Milk"><p>Milk - $1.50</p></div>
+        <div class="product"><img src="images/cheese.jpeg" alt="Cheese"><p>Cheese - $2.00</p></div>
+        <div class="product"><img src="images/yogurt.jpeg" alt="Yogurt"><p>Yogurt - $1.00</p></div>
+        <div class="product"><img src="images/butter.jpeg" alt="Butter"><p>Butter - $2.50</p></div>
+        
+        
+      </div>
+
+      <!-- Grains Category -->
+      <div id="grains" class="product-category">
+        <h3>Grains</h3>
+        <div class="product"><img src="images/rice.jpg" alt="Rice"><p>Rice - $4.00</p></div>
+        <div class="product"><img src="images/wheat.jpg" alt="Wheat"><p>Wheat - $3.50</p></div>
+        <div class="product"><img src="images/oat.jpg" alt="Oats"><p>Oats - $2.00</p></div>
+       
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Organic Groceries. All rights reserved.</p>
+    <p>Contact us at info@organicgroceries.com</p>
+  </footer>
+
+  <script>
+    function showCategory(category) {
+      const categories = document.querySelectorAll('.product-category');
+      categories.forEach(cat => cat.style.display = 'none');
+      const selectedCategory = document.getElementById(category);
+      if (selectedCategory) {
+        selectedCategory.style.display = 'flex';
+        selectedCategory.style.flexWrap = 'wrap';
+        selectedCategory.style.justifyContent = 'center';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => showCategory('vegetables'));
+  </script>
+</body>
+</html>
